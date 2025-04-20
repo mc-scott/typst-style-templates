@@ -4,7 +4,7 @@ Typst is a typesetting system that can be used in place fo LaTeX. Quarto's engin
 
 You have a couple of options when styling PDFs using Typst syntax. 
 
-# 1
+## Option 1
 
 The first and easiest to achieve would be to add a `typst` block directly to the start of a `.qmd` document. Specify in the header-yaml the output format is typst and then add the block. You can now continue writing in the `qmd` file as usual:
 
@@ -12,51 +12,34 @@ The first and easiest to achieve would be to add a `typst` block directly to the
 ---
 format: typst
 ---
-
-```{=typst}
-// page style attributes
-#set page(
-    paper: "a4",
-    fill: rgb("#f3f6f4"),
-    numbering: "| 1 of 1",
-    number-align: right,
-    header: [
-        #set text(12pt)
-        #smallcaps[My brand here]
-        #h(1fr) OFFICIAL
-        
-    ],
-    columns: 1
-  )
-#set par(
-  justify: true
-)
-
-#set text(
-  font: "Source Serif Pro",
-  size: 14pt
-)
-
-// style headers
-#show heading.where(level: 1): set text(
-    weight: "extrabold", 
-    fill: rgb("#483B8B"), 
-    size: 25pt, 
-    font: "Source Sans Pro"
-)
-
-#show heading.where(level: 2): set text(
-    weight: "medium", 
-    fill: rgb("#483B8B"), 
-    size: 20pt
-)
 ```
 
-However, be aware that as soon as you add other arguments like `title: "My title"` or `author: "Me"` to the header-yaml, your carefully created style will break as quarto adds an unstyled title page with these details on to your document so you'd have to do this using typst blocks instead.
+```{=typst}
 
-See [`template.qmd`](template.qmd).
+<... code here ...>
 
-# 2
+```
+
+However, be aware that as soon as you add other arguments like `title: "My title"` or `author: "Me"` to the header-yaml, your carefully-created style will break as quarto adds an un-styled title page with these details on to your document. You'd have to add these options in using typst instead.
+
+See [`code-blocks-template.qmd`](code-blocks-template.qmd).
+
+## Option 2
+
+Use a variety of typst options exposed through the header-yaml in quarto. Be careful as arguments like `logo` only apply to sliders.
+
+```
+format:
+  typst:
+    <options go here>
+
+```
+
+See [`header-yaml-template.qmd`](header-yaml-template.qmd).
+
+## Option 3 (and the most promising option)
+
+Use template files
 
 TODO: get typst templates working and add them in header-yaml configuration using 
 
@@ -71,5 +54,11 @@ format:
 See [`typst-template.typ`](typst-template.typ) and [`typst-show.typ`](typst-show.typ) for my progress here so far.
 
 ## Getting it to work
-- https://typst.app/docs/tutorial/making-a-template/
-- https://quarto.org/docs/output-formats/typst-custom.html#advanced-customization
+- [Typst documentation on creating templates](https://typst.app/docs/tutorial/making-a-template/)
+- [Quarto documentation on using custom templates](https://quarto.org/docs/output-formats/typst-custom.html#advanced-customization)
+
+## Option 4
+
+TODO: Could also use a `_brand.yml` file to style `typst` outputs because this is supported for typst but not pdf outputs.
+
+See [Quarto documentation on brand yaml and typst outputs](https://quarto.org/docs/advanced/typst/brand-yaml.html)

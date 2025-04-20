@@ -1,0 +1,14 @@
+---
+format: 
+  typst:
+    title: "Header-yaml template"
+    date: last-modified
+    mainfont: "Arial"
+    fontsize: "14pt"
+---
+
+# Header 1
+
+## Header 2
+
+Here we see a styled PDF using header-yaml.

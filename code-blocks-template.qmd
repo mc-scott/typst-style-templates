@@ -3,6 +3,7 @@ format: typst
 ---
 
 ```{=typst}
+// style document
 #set page(
     paper: "a4",
     fill: rgb("#f3f6f4"),
@@ -20,18 +21,29 @@ format: typst
   justify: true
 )
 
+// set font in document
 #set text(
   font: "Source Serif Pro",
   size: 14pt
 )
 
-#show heading.where(level: 1): set text(weight: "extrabold", fill: rgb("#483B8B"), size: 25pt, font: "Source Sans Pro")
+// style headers
+#show heading.where(level: 1): set text(
+    weight: "extrabold", 
+    fill: rgb("#483B8B"), 
+    size: 25pt, 
+    font: "Source Sans Pro"
+)
 
-#show heading.where(level: 2): set text(weight: "medium", fill: rgb("#483B8B"), size: 20pt)
+#show heading.where(level: 2): set text(
+    weight: "medium", 
+    fill: rgb("#483B8B"), 
+    size: 20pt
+)
 ```
 
 # Heading 1
 ## Heading 2
 
-Here we test a `typst` block
+Here we test a `typst` block embedded at the start of a quarto template.
 
