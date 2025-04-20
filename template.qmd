@@ -1,0 +1,37 @@
+---
+format: typst
+---
+
+```{=typst}
+#set page(
+    paper: "a4",
+    fill: rgb("#f3f6f4"),
+    numbering: "| 1 of 1",
+    number-align: right,
+    header: [
+        #set text(12pt)
+        #smallcaps[My brand here]
+        #h(1fr) OFFICIAL
+        
+    ],
+    columns: 1
+  )
+#set par(
+  justify: true
+)
+
+#set text(
+  font: "Source Serif Pro",
+  size: 14pt
+)
+
+#show heading.where(level: 1): set text(weight: "extrabold", fill: rgb("#483B8B"), size: 25pt, font: "Source Sans Pro")
+
+#show heading.where(level: 2): set text(weight: "medium", fill: rgb("#483B8B"), size: 20pt)
+```
+
+# Heading 1
+## Heading 2
+
+Here we test a `typst` block
+
